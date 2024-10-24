@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+{% block body %}
+    {% if not post %}
+        <h2>Post not found</h2>
+    {% else %}
+        <h3>{{ post.title }}</h3>
+        <img src="{{ asset('images/index/portfolio/' ~ post.image) }}" width="200" height="150"><br>
+        {{ post.content }}
+        <p>Usuario: {{ post.postUser.name }}</p>
+        <p>Fecha Publicación: {{ post.publishedAt | date('d') }} {{ post.publishedAt | date('F') }} </p>
+    {% endif %}
+{% endblock %}
